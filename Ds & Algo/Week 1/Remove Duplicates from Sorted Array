@@ -1,0 +1,15 @@
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        newArr=sorted(set(nums))
+        newlen=len(newArr)
+        index=0
+        while(len(nums)!=newlen):
+            if len(newArr)>0:
+                if nums[index]==newArr[0]:
+                    newArr.pop(0)
+                    index+=1
+                else:
+                    nums.remove(nums[index])
+            else:
+                nums.remove(nums[index])
+        return len(nums)
